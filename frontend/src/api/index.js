@@ -28,3 +28,11 @@ export const extensionApi = {
     request(`/extensions/custom/${extension}`, { method: 'DELETE' }),
 }
 
+export const uploadApi = {
+  upload: (file) => {
+    const form = new FormData()
+    form.append('file', file)
+    return request('/upload', { method: 'POST', body: form })
+  },
+}
+

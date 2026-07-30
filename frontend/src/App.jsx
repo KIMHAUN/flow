@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { extensionApi } from './api'
 import FixedExtensions from './components/FixedExtensions'
 import CustomExtensions from './components/CustomExtensions'
+import FileUpload from './components/FileUpload'
 
 export default function App() {
   const [fixed, setFixed] = useState([])
@@ -35,6 +36,8 @@ export default function App() {
           <FixedExtensions items={fixed} onChange={fetchExtensions} />
           <hr />
           <CustomExtensions items={custom} onChange={fetchExtensions} />
+          <hr />
+          <FileUpload />
         </>
       )}
     </main>
