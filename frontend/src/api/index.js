@@ -1,7 +1,7 @@
-const BASE = (import.meta.env.VITE_API_BASE ?? '') + '/api'
+const API_BASE_URL = import.meta.env.VITE_API_URL || ''
 
 async function request(url, options = {}) {
-  const res = await fetch(BASE + url, options)
+  const res = await fetch(`${API_BASE_URL}/api${url}`, options)
   const json = await res.json()
   if (!json.success) throw new Error(json.message || '요청에 실패했습니다.')
   return json.data
