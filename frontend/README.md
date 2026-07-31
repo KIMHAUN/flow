@@ -1,16 +1,40 @@
-# React + Vite
+# Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React + Vite 기반 파일 확장자 차단 정책 관리 UI
 
-Currently, two official plugins are available:
+## 기술 스택
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19
+- Vite
+- Fetch API
 
-## React Compiler
+## 로컬 실행
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+백엔드 서버(`http://localhost:8080`)가 먼저 실행되어 있어야 한다.
 
-## Expanding the Oxlint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+`http://localhost:5173`에서 실행된다.
+
+로컬에서는 Vite 프록시(`/api` → `http://localhost:8080`)를 통해 백엔드와 통신하므로 별도 환경변수 설정이 필요 없다.
+
+## 빌드
+
+```bash
+npm run build
+```
+
+`dist/` 폴더에 정적 파일이 생성된다.
+
+## 배포
+
+Render Static Site로 배포한다. `render.yaml` 참고.
+
+환경변수 설정 필요:
+
+| 키 | 설명 |
+|----|------|
+| VITE_API_URL | 백엔드 서버 URL (예: `https://your-backend.onrender.com`) |
