@@ -13,7 +13,7 @@ export default function App() {
   async function fetchExtensions() {
     try {
       const data = await extensionApi.getAll()
-      setFixed(data.fixed)
+      setFixed([...data.fixed].sort((a, b) => b.isBlocked - a.isBlocked))
       setCustom(data.custom)
       setError('')
     } catch (e) {

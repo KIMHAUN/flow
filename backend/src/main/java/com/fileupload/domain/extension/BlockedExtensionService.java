@@ -17,11 +17,11 @@ public class BlockedExtensionService {
     private final BlockedExtensionRepository repository;
 
     public List<BlockedExtension> getFixedExtensions() {
-        return repository.findAllByType(BlockedExtension.ExtensionType.FIXED);
+        return repository.findAllByTypeOrderByIdAsc(BlockedExtension.ExtensionType.FIXED);
     }
 
     public List<BlockedExtension> getCustomExtensions() {
-        return repository.findAllByType(BlockedExtension.ExtensionType.CUSTOM);
+        return repository.findAllByTypeOrderByIdAsc(BlockedExtension.ExtensionType.CUSTOM);
     }
 
     @Transactional

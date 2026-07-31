@@ -11,7 +11,7 @@ import java.util.Set;
 
 public interface BlockedExtensionRepository extends JpaRepository<BlockedExtension, Long> {
 
-    List<BlockedExtension> findAllByType(BlockedExtension.ExtensionType type);
+    List<BlockedExtension> findAllByTypeOrderByIdAsc(BlockedExtension.ExtensionType type);
 
     Optional<BlockedExtension> findByExtension(String extension);
 
